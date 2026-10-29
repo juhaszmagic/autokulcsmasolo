@@ -527,19 +527,20 @@ p { margin: 0 0 1em; }
 
 /* ---------- Lebegő gombok ---------- */
 .float-call {
-  position: fixed; left: 20px; top: 50%; transform: translateY(-50%); z-index: 40;
-  width: 80px; height: 80px; border-radius: 50%; background: #fff;
+  position: fixed; left: 24px; top: 50%; transform: translateY(-50%); z-index: 40;
+  width: 64px; height: 64px; border-radius: 50%; background: var(--green-dark);
   display: grid; place-items: center; box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
   animation: ring 3s ease-in-out infinite;
 }
-.float-call svg { width: 42px; height: 42px; fill: var(--green-dark); }
+.float-call svg { width: 34px; height: 34px; fill: #fff; }
+.float-call:hover { background: var(--green-bright); }
 @keyframes ring { 0%, 86%, 100% { transform: translateY(-50%) rotate(0); } 89% { transform: translateY(-50%) rotate(-12deg); } 92% { transform: translateY(-50%) rotate(12deg); } 95% { transform: translateY(-50%) rotate(-8deg); } }
 .float-wa {
-  position: fixed; left: 28px; top: calc(50% + 56px); z-index: 40;
+  position: fixed; left: 24px; top: calc(50% + 44px); z-index: 40;
   width: 64px; height: 64px; border-radius: 50%; background: #25d366; color: #fff;
   display: grid; place-items: center; box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
 }
-.float-wa svg { width: 36px; height: 36px; }
+.float-wa svg { width: 34px; height: 34px; }
 .float-wa:hover { background: #1ebe5a; }
 .to-top {
   position: fixed; right: 20px; top: 50%; z-index: 40; width: 55px; height: 55px; border-radius: 50%;
@@ -550,8 +551,8 @@ p { margin: 0 0 1em; }
 @media (max-width: 600px) {
   .float-call { top: auto; bottom: 18px; transform: none; width: 62px; height: 62px; animation: none; }
   .float-call svg { width: 32px; height: 32px; }
-  .float-wa { left: 92px; top: auto; bottom: 18px; width: 62px; height: 62px; }
-  .float-wa svg { width: 34px; height: 34px; }
+  .float-wa { left: 100px; top: auto; bottom: 18px; width: 62px; height: 62px; }
+  .float-wa svg { width: 32px; height: 32px; }
   .to-top { top: auto; bottom: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {
