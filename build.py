@@ -15,7 +15,7 @@ from html import escape
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DOMAIN = "https://autokulcsmasolo.com"
-NOINDEX = False
+NOINDEX = True
 FORM_EMAIL = "juhaszmagic@gmail.com"
 
 PHONE_MAIN = "+36306850133"
