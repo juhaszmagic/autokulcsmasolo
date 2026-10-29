@@ -19,7 +19,7 @@ NOINDEX = True
 FORM_EMAIL = ""  # pl. "valaki@example.com"; üresen az űrlap telefonhívásra irányít
 
 PHONE_MAIN = "+36306850133"
-PHONE_FLOAT = "+36308843122"
+PHONE_FLOAT = PHONE_MAIN  # korábban +36308843122
 
 # ---------------------------------------------------------------------------
 #  Ikonok
@@ -228,18 +228,18 @@ def helpbox(items):
 
 GREENBAND_LOCKED = """<div class="wrap"><section class="greenband">
     <h2>Kizáródott autójából?</h2>
-    <p>Garantáltan a leggyorsabb időn belül megizethető áron segítünk Önnek!</p>
+    <p>Garantáltan a leggyorsabb időn belül megfizethető áron segítünk Önnek!</p>
     <a class="btn btn-outline" href="{P}contacts/">KAPCSOLAT</a>
   </section></div>"""
 
-COMMON_P = """<p class="gap">Amennyiben elhagyta kulcsát, vagy az beletört a zárba, ha bezárta a kulcsát és Ön az autón kívül máradt, mi minden esetben tudunk segíteni és kinyitni autóját sérülésmentesen.</p>
+COMMON_P = """<p class="gap">Amennyiben elhagyta kulcsát, vagy az beletört a zárba, ha bezárta a kulcsát és Ön az autón kívül maradt, mi minden esetben tudunk segíteni és kinyitni autóját sérülésmentesen.</p>
       <p>Keressen minket bizalommal!</p>"""
 
 KEY_LIST = [
     "Sérülésmentes autónyitás",
     "Autózár paramétereinek kiolvasása a kulcs elkészítéséhez",
-    "Kulcsmásolás kulcs elkészítése",
-    "Immobiliser taniítása",
+    "Kulcsmásolás, kulcs elkészítése",
+    "Immobiliser tanítása",
     "Autókulcs programozása",
 ]
 
@@ -266,14 +266,14 @@ features = [
     ("truck", "30 PERCEN BELÜL ÉRKEZÜNK"),
     ("wrench", "AUTÓKULCS KÉSZÍTÉS"),
     ("car", "SÉRÜLÉSMENTES AUTÓNYITÁS"),
-    ("smile", "TÖBB MINT 3000<br>ELÉGEDETT ÜGYFÉL"),
+    ("smile", "TÖBB, MINT 3000<br>ELÉGEDETT ÜGYFÉL"),
     ("users", "0-24 ÜGYFÉLSZOLGÁLAT"),
     ("globe", "AUTÓKULCS TANÍTÁS<br>PROGRAMOZÁS"),
 ]
 reviews = [
-    "\"Az esti&nbsp; kutyasétáltatás közben elhagytam a kocsikulcsomat. 30 percen belül kiértek és segítettek. Csak ajánlani tudom őket.\"",
-    "\"Pótkulcsra volt szükségem az autómhoz. 10 perc alatt lemásolták és elkészítették a kulcsot a márkaszervíz ajánlata harmadáért.\"",
-    "\"Nagy választék van náluk, volt egy régi autóm aminek eltörött a kulcsa, orvosolták perceken belül, ami a legjobb, hogy házhoz is jönnek. Korrekt árak korrekt munka.\"",
+    "\"Az esti kutyasétáltatás közben elhagytam a kocsikulcsomat. 30 percen belül kiértek és segítettek. Csak ajánlani tudom őket.\"",
+    "\"Pótkulcsra volt szükségem az autómhoz. 10 perc alatt lemásolták és elkészítették a kulcsot a márkaszerviz ajánlata harmadáért.\"",
+    "\"Nagy választék van náluk, volt egy régi autóm, aminek eltörött a kulcsa, orvosolták perceken belül, ami a legjobb, hogy házhoz is jönnek. Korrekt árak, korrekt munka.\"",
 ]
 
 home = f"""
@@ -297,7 +297,7 @@ home = f"""
   <p class="neon-box"><span class="t2" style="font-size:clamp(22px,3.4vw,36px)">Helyszíni kiszállás</span><span class="t3">Budapest és környéke</span></p>
   <ul class="dots sm">
     <li>Tréler nélkül.</li>
-    <li>Márkaszervíz nélkül.</li>
+    <li>Márkaszerviz nélkül.</li>
     <li>Hosszú várakozás nélkül.</li>
   </ul>
   <p class="slogan">Segítség azonnal,<br>amikor szüksége van rá</p>
@@ -321,12 +321,12 @@ home = f"""
     <article>
       {img("kulcsmasolas", "Autókulcsmásoló gép munka közben", 720, 489)}
       <h2>KULCSMÁSOLÁS A HELYSZÍNEN</h2>
-      <p>A legmodernebb autókulcsmásló géppel lemásoljuk, elkészítjük az autójához az új kulcsot.</p>
+      <p>A legmodernebb autókulcsmásoló géppel lemásoljuk, elkészítjük az autójához az új kulcsot.</p>
     </article>
     <article>
       {img("programozas", "Autókulcs programozása diagnosztikai eszközzel az autóban", 720, 495)}
       <h2>AUTÓKULCS PROGRAMOZÁS</h2>
-      <p>Az elékszült autókulcsát felprogramozzuk az autójához, így az immobilizer a kulcsban indítja gond nélkül az autót és a gombok működtetik a központi zárat.</p>
+      <p>Az elkészült autókulcsát felprogramozzuk az autójához, így az immobilizer a kulcsban indítja gond nélkül az autót és a gombok működtetik a központi zárat.</p>
     </article>
   </section>
 
@@ -364,10 +364,10 @@ home = f"""
 <section class="contact wrap" aria-labelledby="kapcsolat-cim">
   <div class="contact-head">
     <h2 id="kapcsolat-cim">Kapcsolat</h2>
-    <p>(A hívást részesítjük előnyben.<br>Nem mindig tudunk válaszolni az elküldött e-mailekre.<br>Kérjük inkább hívjon minket!)</p>
+    <p>(A hívást részesítjük előnyben.<br>Nem mindig tudunk válaszolni az elküldött e-mailekre.<br>Kérjük, inkább hívjon minket!)</p>
   </div>
   <div class="contact-grid">
-    {form([("nev", "Név", True, "text"), ("email", "Email", True, "email"), ("auto_tipus", "Autó típus", False, "text"), ("evjarat", "Évjárat", False, "text"), ("telefon", "Telefonszám amin elérjük Önt", False, "tel"), ("uzenet", "Foglalja össze, hogy miben segíthetünk.", True, "textarea")], "KÜLDÉS")}
+    {form([("nev", "Név", True, "text"), ("email", "E-mail", True, "email"), ("auto_tipus", "Autótípus", False, "text"), ("evjarat", "Évjárat", False, "text"), ("telefon", "Telefonszám, amin elérjük Önt", False, "tel"), ("uzenet", "Foglalja össze, hogy miben segíthetünk.", True, "textarea")], "KÜLDÉS")}
     <div class="map"><iframe title="Térkép: Nagyida köz 5, Budapest" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Nagyida%20k%C3%B6z%205&amp;z=11&amp;t=m&amp;output=embed"></iframe></div>
   </div>
 </section>
@@ -403,7 +403,7 @@ about = f"""
 </div>
 
 <section class="why wrap" aria-labelledby="miert-cim">
-  <h2 id="miert-cim">Miért minkert válasszon?</h2>
+  <h2 id="miert-cim">Miért minket válasszon?</h2>
   <ul>
     <li>{WHY_ICONS["phone"]}0/24 Szolgáltatás</li>
     <li>{WHY_ICONS["gears"]}30 percen belül érkezünk</li>
@@ -413,9 +413,9 @@ about = f"""
 </section>
 
 <section class="greenband full">
-  <h2>AUTÓ KULCSMÁSOLÁS<br>AUTÓ NYITÁS</h2>
+  <h2>AUTÓ KULCSMÁSOLÁS<br>AUTÓNYITÁS</h2>
   <p>Garantáljuk, hogy sérülésmentesen kinyitjuk Önnek!</p>
-  <a class="btn btn-outline" href="{{P}}contacts/" style="text-transform:none">Elérketőség</a>
+  <a class="btn btn-outline" href="{{P}}contacts/" style="text-transform:none">Elérhetőség</a>
 </section>
 """
 page("about-us/", "Rólunk | Autókulcs Másolás 0-24 Budapest",
@@ -435,7 +435,7 @@ services = f"""
   </section>
   <div class="reach"><h2>ELÉRHETŐSÉGÜNK:<br><a href="{tel(PHONE_FLOAT)}">{PHONE_FLOAT}</a></h2></div>
   <section class="goal" style="background-image:url('{{P}}assets/img/hatter-celunk.webp')">
-    <p>“CÉLUNK AZ,&nbsp; HOGY A LEGRÖVIDEBB IDŐN BELÜL SEGÍTHESSÜNK ÖNNEK AUTÓKULCSOT MÁSOLNI, PROGRAMOZNI VAGY PÓTKULCSOT KÉSZÍTENI“</p>
+    <p>„CÉLUNK AZ, HOGY A LEGRÖVIDEBB IDŐN BELÜL SEGÍTHESSÜNK ÖNNEK AUTÓKULCSOT MÁSOLNI, PROGRAMOZNI VAGY PÓTKULCSOT KÉSZÍTENI”</p>
   </section>
 </div>
 """
@@ -474,8 +474,8 @@ subpage(
 
 subpage(
     "elvesztettkulcs/", "ELVESZTETT KULCS", "hatter-kulcs-2",
-    """<p>Amennyiben nincs pótkulcsa és az az egy is elveszett ami volt, akkor először ki kell nyitni a gépjárművet. Ezt sérülésmentesen megtesszük, majd ki kell olvasni az autó zárjának a paramétereit, hogy elkészíthessük Önnek az új kulcsát.</p>
-    <p>Amennyiben az autó már nyitva van és kiolvastuk az autó zárának paramétereit megkezdjük a kulcs készítését. Ezt a legmodernebb gépeinkkel akár a helyszínen is el tudjuk végezni. Miután elkészült a kulcs és kipróbáltuk, hogy az ajtóban és a gyújtáskapcsolóban gond nélkül elfordul, ezután jöhet a kulcs és az immobiliser tanítása és a kulcs programozása az autó OBD csatlakozóján keresztül. </p>
+    """<p>Amennyiben nincs pótkulcsa és az az egy is elveszett, ami volt, akkor először ki kell nyitni a gépjárművet. Ezt sérülésmentesen megtesszük, majd ki kell olvasni az autó zárjának a paramétereit, hogy elkészíthessük Önnek az új kulcsát.</p>
+    <p>Amennyiben az autó már nyitva van és kiolvastuk az autó zárának paramétereit, megkezdjük a kulcs készítését. Ezt a legmodernebb gépeinkkel akár a helyszínen is el tudjuk végezni. Miután elkészült a kulcs és kipróbáltuk, hogy az ajtóban és a gyújtáskapcsolóban gond nélkül elfordul, ezután jöhet a kulcs és az immobiliser tanítása és a kulcs programozása az autó OBD csatlakozóján keresztül. </p>
     <p>Minden típusú autó kinyitásában és kulcsmásolásában tudunk segíteni, legyen szó személygépjárműről, kamionról, robogóról vagy buszról.</p>""",
     KEY_LIST,
     "Elvesztett kulcs | Autókulcs készítés Budapest 0-24",
@@ -484,8 +484,8 @@ subpage(
 
 subpage(
     "potkulcs/", "AUTÓKULCS MÁSOLÁS", "hatter-kulcs-2",
-    """<p>Szüksége van autókulcs másolásra? Elveszett az egyik kulcsa? Perceken belül elkészítjuk az újat!</p>
-    <p>Hozza magával a kulcsát és mi elkészítjuk annak másolatát perceken belül. Az Immobiliser programozás és a gombok tanítása az autóhoz sem jelent gondot nekünk.</p>
+    """<p>Szüksége van autókulcs másolásra? Elveszett az egyik kulcsa? Perceken belül elkészítjük az újat!</p>
+    <p>Hozza magával a kulcsát és mi elkészítjük annak másolatát perceken belül. Az immobiliser programozás és a gombok tanítása az autóhoz sem jelent gondot nekünk.</p>
     <p>Minden típusú autó kinyitásában és kulcsmásolásában tudunk segíteni, legyen szó személygépjárműről, kamionról, robogóról vagy buszról.</p>""",
     KEY_LIST,
     "Autókulcs másolás | Pótkulcs készítés Budapest 0-24",
@@ -493,11 +493,11 @@ subpage(
 )
 
 subpage(
-    "autokulcstanitas/", "AUTÓKULCS TANÍTÁS&nbsp; IMMO. PROGRAMOZÁS", "hatter-kulcs-1",
+    "autokulcstanitas/", "AUTÓKULCS TANÍTÁS, IMMO. PROGRAMOZÁS", "hatter-kulcs-1",
     """<p>Nem kommunikál a kulcsa az autójával? A gombok nem működnek rajta? Esetleg meghibásodott az immobiliser a kulcsban?</p>
-    <p>Immobiliser programozással és a kulcs tanításával, hogy kommunikáljon az autóval forduljon hozzánk bizalommal. Modern gépeink segítségével gyorsan megoldjuk a problémáját. Cégünk 0-24 ben nyitva van, így nem problema ha ünnepnapon, hétvégén vagy éjszaka van szüksége a szolgáltatásunkra, mi készenlétben állunk, hogy segíthessünk Önnek!</p>""",
-    ["Elemcsere a kulcsban", "Autózár paramétereinek kiolvasása a kulcs elkészítéséhez", "Kulcsmásolás kulcs elkészítése",
-     "Immobiliser taniítása", "Autókulcs programozása"],
+    <p>Immobiliser programozással és a kulcs tanításával, hogy kommunikáljon az autóval, forduljon hozzánk bizalommal. Modern gépeink segítségével gyorsan megoldjuk a problémáját. Cégünk 0-24-ben nyitva van, így nem probléma, ha ünnepnapon, hétvégén vagy éjszaka van szüksége a szolgáltatásunkra, mi készenlétben állunk, hogy segíthessünk Önnek!</p>""",
+    ["Elemcsere a kulcsban", "Autózár paramétereinek kiolvasása a kulcs elkészítéséhez", "Kulcsmásolás, kulcs elkészítése",
+     "Immobiliser tanítása", "Autókulcs programozása"],
     "Autókulcs tanítás, immobiliser programozás | Budapest 0-24",
     "Nem működnek a kulcs gombjai, nem kommunikál a kulcs az autóval? Immobiliser programozás és kulcstanítás 0-24 órában.",
     top=True,
@@ -509,8 +509,8 @@ subpage(
 prices = [
     ("Autónyitás", "20.000 Ft-tól"),
     ("Autókulcs másolás (nem nyomógombos)", "20.000 Ft-tól"),
-    ("Autókulcs készítés távirányitós kulcs<br>(Kulcsmásolas, távirányitó tanitás és immobiliser programozás)", "40.000 Ft-tól"),
-    ("Elveszett kulcs (Autó kinyitása, kulcskészítés, immobiliser programozása, távirányitó tanitás)", "60.000 Ft-tól"),
+    ("Autókulcs készítés távirányítós kulcs<br>(Kulcsmásolás, távirányító tanítás és immobiliser programozás)", "40.000 Ft-tól"),
+    ("Elveszett kulcs (Autó kinyitása, kulcskészítés, immobiliser programozása, távirányító tanítás)", "60.000 Ft-tól"),
 ]
 arak = f"""
 <section class="pricing" aria-labelledby="arak-cim">
@@ -522,8 +522,8 @@ arak = f"""
       <tbody>{"".join(f'<tr><td>{s}</td><td class="p">{a}</td></tr>' for s, a in prices)}</tbody>
     </table>
     <p class="price-note">{CHECK_CIRCLE}Áraink bruttó árak, nem jön rá semmilyen extra,<br>rejtett költség.</p>
-    <p class="price-note">{CHECK_CIRCLE}Mínden hívásnál telefonon egyeztetjük és<br>pontosítjuk az árakat.</p>
-    <p class="price-small">Néhány típusú autónál, illetve <b>éjszakai kiszállás</b> esetében<br>egyéb kòltségekkel kell <span class="g">számolni</span>.</p>
+    <p class="price-note">{CHECK_CIRCLE}Minden hívásnál telefonon egyeztetjük és<br>pontosítjuk az árakat.</p>
+    <p class="price-small">Néhány típusú autónál, illetve <b>éjszakai kiszállás</b> esetében<br>egyéb költségekkel kell <span class="g">számolni</span>.</p>
     <p class="price-contact"><a class="n" href="{tel(PHONE_MAIN)}">{PHONE_MAIN}</a><a class="w" href="{DOMAIN}/">www.autokulcsmasolo.com</a></p>
   </div>
   <div class="pricing-bottom"></div>
@@ -538,10 +538,10 @@ contacts = f"""
 <section class="contact-card" aria-labelledby="kapcs-cim">
   <h1 class="lightning" id="kapcs-cim"><span>KAPCSOLAT</span></h1>
   <div class="addr">{PIN_SVG}<p style="margin:0">1112 Budapest Nagyida köz 5/B &nbsp;&nbsp; Hétfő – Vasárnap,<br>11:00-22:00</p></div>
-  <p class="addr-note">(Amennyiben személyesen jön kulcsot másoltatni vagy készíteni kérjük minden esetben hívjon minket egyeztetés céljából)</p>
+  <p class="addr-note">(Amennyiben személyesen jön kulcsot másoltatni vagy készíteni, kérjük minden esetben hívjon minket egyeztetés céljából)</p>
   <a class="big-phone" href="{tel(PHONE_MAIN)}">{PHONE_SVG}{PHONE_MAIN}</a>
   <h2 class="lightning sm"><span>Küldjön üzenetet</span></h2>
-  <p class="email-note">(Az emailre nem mindig van időnk időben válaszolni,<br>a hívást előnyben részesítjük)</p>
+  <p class="email-note">(Az e-mailre nem mindig van időnk időben válaszolni,<br>a hívást előnyben részesítjük)</p>
 </section>
 <div class="wrap contact-form" style="margin-top:10px">
   {form([("nev", "Név", False, "text"), ("email", "E-mail cím", True, "email"), ("uzenet", "Üzenet", False, "textarea")], "Küldés", left=True)}
@@ -559,11 +559,11 @@ lost = f"""
   <div class="lost-row">
     {img("elveszett-kulcs-szakember", "Autókulcs szakember kulcsokkal, mögötte a felszerelt műhelyautó és kulcsmásoló gépek", 475, 900, lazy=False)}
     <ul class="lost-list">
-      <li>{LOST_ICONS["pin"]}<span><span class="g">Guruló műhelyautóval</span><br>bárhol képesek vagyunk<br>egy új <b>autókulcsot</b> késziteni!</span></li>
-      <li>{LOST_ICONS["clock"]}<span>Hivástól számítva<br><span class="g-big">1 órán belül</span><br>elkészül az új <b>kulcs.</b></span></li>
-      <li>{LOST_ICONS["shield"]}<span><span class="g">Nincs szükség zárcserére!</span><br>A meglévő zárhoz készitjük<br>az új <b>kulcsot.</b></span></li>
+      <li>{LOST_ICONS["pin"]}<span><span class="g">Guruló műhelyautóval</span><br>bárhol képesek vagyunk<br>egy új <b>autókulcsot</b> készíteni!</span></li>
+      <li>{LOST_ICONS["clock"]}<span>Hívástól számítva<br><span class="g-big">1 órán belül</span><br>elkészül az új <b>kulcs.</b></span></li>
+      <li>{LOST_ICONS["shield"]}<span><span class="g">Nincs szükség zárcserére!</span><br>A meglévő zárhoz készítjük<br>az új <b>kulcsot.</b></span></li>
       <li>{LOST_ICONS["erase"]}<span><span class="g">Az elveszett kulcsokat</span><br>töröljük az autó rendszeréből,<br>így illetéktelen nem fogja<br><b>tudni használni!</b></span></li>
-      <li>{LOST_ICONS["keys"]}<span><span class="g">Általában két kulcsot</span> készitünk,<br>mert az egy kulcs nem kulcs!</span></li>
+      <li>{LOST_ICONS["keys"]}<span><span class="g">Általában két kulcsot</span> készítünk,<br>mert az egy kulcs nem kulcs!</span></li>
     </ul>
   </div>
   <div class="lost-call"><p class="q" style="margin:0">Ellopták, elveszett?</p><a href="{tel(PHONE_MAIN)}">{PHONE_SVG}+36 30 685 0133</a></div>
@@ -571,11 +571,11 @@ lost = f"""
     {img("gurulo-muhelyauto", "Kulcsprogramozó és diagnosztikai eszközök a műhelyautóban", 555, 1000)}
     <div>
       <h2 id="muhely-cim"><span class="a">Guruló</span><span class="b">műhelyautó</span></h2>
-      <p class="where">Budapestén<br>és környékén</p>
+      <p class="where">Budapesten<br>és környékén</p>
       <p class="desc">Autókulcskészítés<br>a helyszínen<br>gyors, profi<br>és szakszerű megoldással.</p>
       <ul>
         <li>Forrasztás, javítás, kulcsmarás</li>
-        <li>Távirányítók és immobilizerek programozasa</li>
+        <li>Távirányítók és immobilizerek programozása</li>
         <li>Elveszett kulcsok törlése a rendszerből</li>
       </ul>
       <p class="end">Gyors és biztonságos<br>megoldás bárhol,<br>bármikor!</p>
@@ -583,7 +583,7 @@ lost = f"""
   </section>
 </section>
 """
-page("eveszettautokulcs/", "Eveszett autókulcs | Elveszett az utolsó autókulcsa? Budapest",
+page("eveszettautokulcs/", "Elveszett autókulcs | Elveszett az utolsó autókulcsa? Budapest",
      "Elveszett az utolsó autókulcsa? Guruló műhelyautóval Budapesten a helyszínen, zárcsere nélkül készítjük el az új kulcsot.", lost,
      extra_head="")
 
