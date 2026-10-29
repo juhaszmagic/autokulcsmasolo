@@ -15,7 +15,7 @@ from html import escape
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DOMAIN = "https://autokulcsmasolo.com"
-NOINDEX = True
+NOINDEX = False
 FORM_EMAIL = ""  # pl. "valaki@example.com"; üresen az űrlap telefonhívásra irányít
 
 PHONE_MAIN = "+36306850133"
@@ -598,7 +598,7 @@ thanks = """
 </div>
 """
 _noindex = NOINDEX
-NOINDEX = True
+NOINDEX = False
 page("koszonjuk/", "Köszönjük | Autókulcs Másolás 0-24", "Üzenetét megkaptuk.", thanks)
 NOINDEX = _noindex
 
