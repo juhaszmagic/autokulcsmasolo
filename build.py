@@ -15,7 +15,7 @@ from html import escape
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DOMAIN = "https://autokulcsmasolo.com"
-NOINDEX = True
+NOINDEX = False
 FORM_EMAIL = ""  # pl. "valaki@example.com"; üresen az űrlap telefonhívásra irányít
 
 PHONE_MAIN = "+36306850133"
