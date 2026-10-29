@@ -528,12 +528,12 @@ p { margin: 0 0 1em; }
 /* ---------- Lebegő gombok ---------- */
 .float-call {
   position: fixed; left: 24px; top: 50%; transform: translateY(-50%); z-index: 40;
-  width: 64px; height: 64px; border-radius: 50%; background: var(--green-dark);
+  width: 64px; height: 64px; border-radius: 50%; background: #fff;
   display: grid; place-items: center; box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
   animation: ring 3s ease-in-out infinite;
 }
-.float-call svg { width: 34px; height: 34px; fill: #fff; }
-.float-call:hover { background: var(--green-bright); }
+.float-call svg { width: 34px; height: 34px; fill: var(--green-dark); }
+.float-call:hover { background: #eafbe9; }
 @keyframes ring { 0%, 86%, 100% { transform: translateY(-50%) rotate(0); } 89% { transform: translateY(-50%) rotate(-12deg); } 92% { transform: translateY(-50%) rotate(12deg); } 95% { transform: translateY(-50%) rotate(-8deg); } }
 .float-wa {
   position: fixed; left: 24px; top: calc(50% + 44px); z-index: 40;
