@@ -150,7 +150,7 @@ def page(path, title, description, body, current=None, og_image="assets/img/og.j
 <footer class="site-footer">
   <div class="wrap">
     <p>2019 Autónyitás Budapest 0-24</p>
-    <p>2111 Budapest Nagyida köz 5/B</p>
+    <p>1112 Budapest Nagyida köz 5/B</p>
   </div>
 </footer>
 <a class="float-call" href="{tel(PHONE_FLOAT)}" aria-label="Hívás: {PHONE_FLOAT}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="{PHONE_PATH}"/></svg></a>
