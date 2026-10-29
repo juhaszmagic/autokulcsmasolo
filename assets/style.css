@@ -331,10 +331,19 @@ p { margin: 0 0 1em; }
 .nowait p.big { font-family: var(--sans); font-weight: 500; font-size: clamp(22px, 3.2vw, 40px); line-height: 1.38; text-transform: uppercase; margin-bottom: 100px; }
 .nowait p.serif { font-family: Georgia, "Times New Roman", serif; font-size: clamp(20px, 2.7vw, 34px); line-height: 1.2; text-transform: uppercase; letter-spacing: .03em; margin: 0; }
 .nowait-btn { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: -2px; }
+.cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.cta-row .btn { min-width: 150px; padding-inline: 24px; }
+.btn-call::after { content: none; }
+.btn-call svg, .btn-wa svg { width: 18px; height: 18px; flex-shrink: 0; }
+.greenband .btn-call { background: var(--ink); border-color: var(--ink); color: #fff; }
+.greenband .btn-call:hover { background: #000; }
+.hero-cta { max-width: 1024px; margin: 0 auto; padding: 20px 16px; background: #14141d; }
+.pricing-bottom .cta-row { padding: 34px 16px 0; }
+.reach .cta-row { margin: 18px 0 40px; }
+.wa-one { text-align: center; margin: 22px 0 0; }
 .btn-wa { background: #25d366; border-color: #25d366; }
 .btn-wa:hover { background: #3ee07a; }
 .btn-wa::after { content: none; }
-.btn-wa svg { width: 18px; height: 18px; }
 @media (max-width: 560px) { .nowait p.big { margin-bottom: 50px; } }
 
 /* ---------- Kapcsolat (főoldal) ---------- */
@@ -459,8 +468,8 @@ p { margin: 0 0 1em; }
 .price-contact a { text-decoration: none; }
 .price-contact .n { display: block; font-size: clamp(30px, 4.6vw, 46px); letter-spacing: .02em; }
 .price-contact .w { display: block; font-size: clamp(18px, 2.7vw, 30px); color: var(--green-light); }
-.pricing-bottom { height: 120px; }
-@media (max-width: 640px) { .price-frame { margin: 20px 10px 0; padding: 14px 14px 20px; } .pricing-bottom { height: 40px; } }
+.pricing-bottom { padding-bottom: 80px; }
+@media (max-width: 640px) { .price-frame { margin: 20px 10px 0; padding: 14px 14px 20px; } .pricing-bottom { padding-bottom: 36px; } }
 
 /* Kapcsolat oldal */
 .contact-card { max-width: 1024px; margin: 0 auto; padding: 70px 30px 80px; background: radial-gradient(ellipse at 50% 0, rgba(7, 218, 12, .12), transparent 60%), #141514; }
@@ -524,6 +533,16 @@ p { margin: 0 0 1em; }
 /* ---------- Lábléc ---------- */
 .site-footer { background: var(--bg-dark); color: var(--muted); padding: 28px 0 60px; margin-top: 60px; font-size: 17px; line-height: 1.2; }
 .site-footer p { margin: 0; }
+.footer-grid { display: grid; grid-template-columns: 1.1fr 1.2fr 1fr; gap: 28px; }
+.footer-grid p { margin: 0 0 8px; line-height: 1.4; }
+.site-footer a { color: #d6d6d8; text-decoration: none; }
+.site-footer a:hover { color: var(--green-bright); }
+.f-name { color: #fff; font-family: var(--slab); font-size: 19px; }
+.f-big { display: inline-flex; align-items: center; gap: 10px; font-size: 19px; color: #fff !important; }
+.f-big svg { width: 20px; height: 20px; color: var(--green-bright); }
+.f-links { list-style: none; margin: 0; padding: 0; columns: 1; }
+.f-links li { margin-bottom: 6px; }
+@media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr; gap: 18px; } .site-footer { padding-bottom: 100px; } }
 
 /* ---------- Lebegő gombok ---------- */
 .float-call {

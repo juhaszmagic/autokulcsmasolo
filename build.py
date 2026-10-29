@@ -20,6 +20,7 @@ FORM_EMAIL = "juhaszmagic@gmail.com"
 
 PHONE_MAIN = "+36306850133"
 PHONE_FLOAT = PHONE_MAIN  # korábban +36308843122
+MAPS = "https://www.google.com/maps/search/?api=1&amp;query=1112+Budapest+Nagyida+k%C3%B6z+5%2FB"
 WHATSAPP = "https://wa.me/36306850133?text=" + "%C3%9Cdv%C3%B6zl%C3%B6m%21%20Az%20autokulcsmasolo.com%20oldalr%C3%B3l%20%C3%ADrok."
 
 # ---------------------------------------------------------------------------
@@ -153,9 +154,18 @@ def page(path, title, description, body, current=None, og_image="assets/img/og.j
 {body.replace("{P}", p)}
 </main>
 <footer class="site-footer">
-  <div class="wrap">
-    <p>2019 Autónyitás Budapest 0-24</p>
-    <p>1112 Budapest Nagyida köz 5/B</p>
+  <div class="wrap footer-grid">
+    <div>
+      <p class="f-name">Autókulcs Másolás 0-24</p>
+      <p>2019 Autónyitás Budapest 0-24</p>
+      <p><a href="{MAPS}" target="_blank" rel="noopener">1112 Budapest Nagyida köz 5/B</a></p>
+    </div>
+    <div>
+      <p><a class="f-big" href="{tel(PHONE_MAIN)}">{PHONE_SVG}{PHONE_MAIN}</a></p>
+      <p><a class="f-big" href="{WHATSAPP}" target="_blank" rel="noopener">{WA_SVG}WhatsApp üzenet</a></p>
+      <p>Budapesten és környékén, a hét minden napján 0-24</p>
+    </div>
+    <nav aria-label="Lábléc menü"><ul class="f-links">{"".join(f'<li><a href="{p}{e[1]}">{e[0]}</a></li>' for e in NAV)}</ul></nav>
   </div>
 </footer>
 <a class="float-call" href="{tel(PHONE_FLOAT)}" aria-label="Hívás: {PHONE_FLOAT}"><svg viewBox="5.3 5.3 13.4 13.4" aria-hidden="true"><path d="{WA_HANDSET}"/></svg></a>
@@ -232,10 +242,19 @@ def helpbox(items):
     </div>"""
 
 
-GREENBAND_LOCKED = """<div class="wrap"><section class="greenband">
+def cta_row(cls=""):
+    """Közvetlen hívás és WhatsApp gomb egymás mellett."""
+    c = f"cta-row {cls}".strip()
+    return (
+        f'<div class="{c}"><a class="btn btn-lg btn-call" href="{tel(PHONE_MAIN)}">{PHONE_SVG}HÍVÁS</a>'
+        f'<a class="btn btn-lg btn-wa" href="{WHATSAPP}" target="_blank" rel="noopener">{WA_SVG}WHATSAPP</a></div>'
+    )
+
+
+GREENBAND_LOCKED = f"""<div class="wrap"><section class="greenband">
     <h2>Kizáródott autójából?</h2>
     <p>Garantáltan a leggyorsabb időn belül megfizethető áron segítünk Önnek!</p>
-    <a class="btn btn-outline" href="{P}contacts/">KAPCSOLAT</a>
+    {cta_row()}
   </section></div>"""
 
 COMMON_P = """<p class="gap">Amennyiben elhagyta kulcsát, vagy az beletört a zárba, ha bezárta a kulcsát és Ön az autón kívül maradt, mi minden esetben tudunk segíteni és kinyitni autóját sérülésmentesen.</p>
@@ -257,6 +276,13 @@ LD = {
     "url": DOMAIN + "/",
     "image": DOMAIN + "/assets/img/og.jpg",
     "telephone": PHONE_MAIN,
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Nagyida köz 5/B",
+        "postalCode": "1112",
+        "addressLocality": "Budapest",
+        "addressCountry": "HU",
+    },
     "areaServed": "Budapest és környéke",
     "priceRange": "20.000 Ft-tól",
     "openingHours": "Mo-Su 00:00-24:00",
@@ -288,6 +314,8 @@ home = f"""
   <div class="hero-photo">{img("potkulcs-szakember", "Autókulcs szakember távirányítós autókulcsokkal, háttérben az esti Budapest", 1024, 950, lazy=False)}</div>
   <p class="hero-badge"><span class="l1">Budapesten</span><span class="l2"><b>30</b> percen belül</span></p>
 </section>
+
+<div class="hero-cta">{cta_row()}</div>
 
 <section class="near" aria-labelledby="kozel-cim">
   <h2 class="neon-box" id="kozel-cim"><span class="t1">Autókulcs másolás</span><span class="t2">a közelében</span></h2>
@@ -439,7 +467,7 @@ services = f"""
     <div class="svc">{img("szolg-autoban-felejtett", "Autókulcs átadása", 480, 426)}<h2>AUTÓBAN FELEJTETT KULCS</h2><a class="btn" href="{{P}}autobanfelejtettkulcs/">TOVÁBB</a></div>
     <div class="svc">{img("szolg-keszites", "Kinyitható autókulcs kézben", 480, 426)}<h2>AUTÓKULCS KÉSZÍTÉS</h2><a class="btn" href="{{P}}elvesztettkulcs/">TOVÁBB</a></div>
   </section>
-  <div class="reach"><h2>ELÉRHETŐSÉGÜNK:<br><a href="{tel(PHONE_FLOAT)}">{PHONE_FLOAT}</a></h2></div>
+  <div class="reach"><h2>ELÉRHETŐSÉGÜNK:<br><a href="{tel(PHONE_FLOAT)}">{PHONE_FLOAT}</a></h2>{cta_row()}</div>
   <section class="goal" style="background-image:url('{{P}}assets/img/hatter-celunk.webp')">
     <p>„CÉLUNK AZ, HOGY A LEGRÖVIDEBB IDŐN BELÜL SEGÍTHESSÜNK ÖNNEK AUTÓKULCSOT MÁSOLNI, PROGRAMOZNI VAGY PÓTKULCSOT KÉSZÍTENI”</p>
   </section>
@@ -532,7 +560,7 @@ arak = f"""
     <p class="price-small">Néhány típusú autónál, illetve <b>éjszakai kiszállás</b> esetében<br>egyéb költségekkel kell <span class="g">számolni</span>.</p>
     <p class="price-contact"><a class="n" href="{tel(PHONE_MAIN)}">{PHONE_MAIN}</a><a class="w" href="{DOMAIN}/">www.autokulcsmasolo.com</a></p>
   </div>
-  <div class="pricing-bottom"></div>
+  <div class="pricing-bottom">{cta_row()}</div>
 </section>
 """
 page("arak/", "Kulcsmásolás árak", "Kulcsmásolás áraink", arak)
@@ -546,6 +574,7 @@ contacts = f"""
   <div class="addr">{PIN_SVG}<p style="margin:0">1112 Budapest Nagyida köz 5/B &nbsp;&nbsp; Hétfő – Vasárnap,<br>11:00-22:00</p></div>
   <p class="addr-note">(Amennyiben személyesen jön kulcsot másoltatni vagy készíteni, kérjük minden esetben hívjon minket egyeztetés céljából)</p>
   <a class="big-phone" href="{tel(PHONE_MAIN)}">{PHONE_SVG}{PHONE_MAIN}</a>
+  <p class="wa-one"><a class="btn btn-lg btn-wa" href="{WHATSAPP}" target="_blank" rel="noopener">{WA_SVG}WHATSAPP ÜZENET</a></p>
   <h2 class="lightning sm"><span>Küldjön üzenetet</span></h2>
   <p class="email-note">(Az e-mailre nem mindig van időnk időben válaszolni,<br>a hívást előnyben részesítjük)</p>
 </section>
@@ -572,7 +601,7 @@ lost = f"""
       <li>{LOST_ICONS["keys"]}<span><span class="g">Általában két kulcsot</span> készítünk,<br>mert az egy kulcs nem kulcs!</span></li>
     </ul>
   </div>
-  <div class="lost-call"><p class="q" style="margin:0">Ellopták, elveszett?</p><a href="{tel(PHONE_MAIN)}">{PHONE_SVG}+36 30 685 0133</a></div>
+  <div class="lost-call"><p class="q" style="margin:0">Ellopták, elveszett?</p><a href="{tel(PHONE_MAIN)}">{PHONE_SVG}+36 30 685 0133</a><p class="wa-one"><a class="btn btn-lg btn-wa" href="{WHATSAPP}" target="_blank" rel="noopener">{WA_SVG}WHATSAPP ÜZENET</a></p></div>
   <section class="workshop" aria-labelledby="muhely-cim">
     {img("gurulo-muhelyauto", "Kulcsprogramozó és diagnosztikai eszközök a műhelyautóban", 555, 1000)}
     <div>
