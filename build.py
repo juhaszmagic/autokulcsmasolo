@@ -598,7 +598,7 @@ thanks = """
 </div>
 """
 _noindex = NOINDEX
-NOINDEX = False
+NOINDEX = True
 page("koszonjuk/", "Köszönjük | Autókulcs Másolás 0-24", "Üzenetét megkaptuk.", thanks)
 NOINDEX = _noindex
 
