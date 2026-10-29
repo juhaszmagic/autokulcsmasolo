@@ -406,7 +406,7 @@ home = f"""
   </div>
 </section>
 """
-page("", "Autó kulcsmásolás Non-Stop Budapest", "Autó kulcsmásolás, kulcskészítés, programozás Budapesten és környékén.", home,
+page("", "Autó kulcsmásolás Non-Stop Budapest", "Autó kulcsmásolás, kulcskészítés, programozás Budapesten és környékén. Helyszíni kiszállás 0-24, akár 30 percen belül. Hívjon: +36 30 685 0133", home,
      extra_head=LD_SCRIPT + '<link rel="preload" as="image" href="assets/img/potkulcs-szakember.webp" fetchpriority="high">\n')
 
 # ---------------------------------------------------------------------------
@@ -563,7 +563,7 @@ arak = f"""
   <div class="pricing-bottom">{cta_row()}</div>
 </section>
 """
-page("arak/", "Kulcsmásolás árak", "Kulcsmásolás áraink", arak)
+page("arak/", "Autókulcs másolás és autónyitás árak | Budapest 0-24", "Autónyitás 20.000 Ft-tól, autókulcs másolás 20.000 Ft-tól, távirányítós kulcs 40.000 Ft-tól. Bruttó árak, rejtett költség nélkül.", arak)
 
 # ---------------------------------------------------------------------------
 #  Elérhetőség
@@ -571,7 +571,7 @@ page("arak/", "Kulcsmásolás árak", "Kulcsmásolás áraink", arak)
 contacts = f"""
 <section class="contact-card" aria-labelledby="kapcs-cim">
   <h1 class="lightning" id="kapcs-cim"><span>KAPCSOLAT</span></h1>
-  <div class="addr">{PIN_SVG}<p style="margin:0">1112 Budapest Nagyida köz 5/B &nbsp;&nbsp; Hétfő – Vasárnap,<br>11:00-22:00</p></div>
+  <div class="addr">{PIN_SVG}<p style="margin:0">1112 Budapest Nagyida köz 5/B<br>Személyes ügyintézés: Hétfő – Vasárnap, 11:00-22:00<br>Helyszíni kiszállás: 0-24</p></div>
   <p class="addr-note">(Amennyiben személyesen jön kulcsot másoltatni vagy készíteni, kérjük minden esetben hívjon minket egyeztetés céljából)</p>
   <a class="big-phone" href="{tel(PHONE_MAIN)}">{PHONE_SVG}{PHONE_MAIN}</a>
   <p class="wa-one"><a class="btn btn-lg btn-wa" href="{WHATSAPP}" target="_blank" rel="noopener">{WA_SVG}WHATSAPP ÜZENET</a></p>
