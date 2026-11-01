@@ -22,6 +22,8 @@ FORM_EMAIL = "juhaszmagic@gmail.com"
 PHONE_MAIN = "+36306850133"
 PHONE_FLOAT = PHONE_MAIN  # korábban +36308843122
 MAPS = "https://www.google.com/maps/search/?api=1&amp;query=1112+Budapest+Nagyida+k%C3%B6z+5%2FB"
+GOOGLE_PROFILE = "https://maps.app.goo.gl/zDASVpPmkzXWkJVB8"
+GOOGLE_G = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h5.9a5 5 0 01-2.2 3.3v2.7h3.6c2.1-1.9 3.3-4.8 3.3-8.1z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.3-2.7l-3.6-2.7c-1 .7-2.2 1.1-3.7 1.1-2.9 0-5.3-1.9-6.2-4.5H2.1v2.8A11 11 0 0012 23z"/><path fill="#FBBC05" d="M5.8 14.2a6.6 6.6 0 010-4.3V7.1H2.1a11 11 0 000 9.9l3.7-2.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.2-3.2A11 11 0 0012 1 11 11 0 002.1 7.1l3.7 2.8C6.7 7.3 9.1 5.4 12 5.4z"/></svg>'
 WHATSAPP = "https://wa.me/36306850133?text=" + urllib.parse.quote(
     "Üdvözlöm! Autókulcs ügyben szeretnék érdeklődni, az autokulcsmasolo.com-on találtam az elérhetőségét."
 )
@@ -162,6 +164,7 @@ def page(path, title, description, body, current=None, og_image="assets/img/og.j
       <p class="f-name">Autókulcs Másolás 0-24</p>
       <p>2019 Autónyitás Budapest 0-24</p>
       <p><a href="{MAPS}" target="_blank" rel="noopener">1112 Budapest Nagyida köz 5/B</a></p>
+      <p><a href="{GOOGLE_PROFILE}" target="_blank" rel="noopener">Google-értékeléseink</a></p>
     </div>
     <div>
       <p><a class="f-big" href="{tel(PHONE_MAIN)}">{PHONE_SVG}{PHONE_MAIN}</a></p>
@@ -390,6 +393,7 @@ home = f"""
 <section class="reviews" aria-labelledby="velemeny-cim">
   <h2 id="velemeny-cim">ÜGYFELEINK MONDTÁK RÓLUNK</h2>
   {"".join(f'<figure class="review">{STARS}<blockquote>{r}</blockquote></figure>' for r in reviews)}
+  <p class="g-reviews"><a class="btn btn-lg btn-google" href="{GOOGLE_PROFILE}" target="_blank" rel="noopener">{GOOGLE_G}Google-értékeléseink</a></p>
 </section>
 
 <section class="nowait">
