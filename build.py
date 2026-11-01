@@ -11,6 +11,7 @@ Beállítások:
 """
 import json
 import os
+import urllib.parse
 from html import escape
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -21,7 +22,9 @@ FORM_EMAIL = "juhaszmagic@gmail.com"
 PHONE_MAIN = "+36306850133"
 PHONE_FLOAT = PHONE_MAIN  # korábban +36308843122
 MAPS = "https://www.google.com/maps/search/?api=1&amp;query=1112+Budapest+Nagyida+k%C3%B6z+5%2FB"
-WHATSAPP = "https://wa.me/36306850133?text=" + "%C3%9Cdv%C3%B6zl%C3%B6m%21%20Az%20autokulcsmasolo.com%20oldalr%C3%B3l%20%C3%ADrok."
+WHATSAPP = "https://wa.me/36306850133?text=" + urllib.parse.quote(
+    "Üdvözlöm! Autókulcs ügyben szeretnék érdeklődni, az autokulcsmasolo.com-on találtam az elérhetőségét."
+)
 
 # ---------------------------------------------------------------------------
 #  Ikonok
