@@ -293,6 +293,19 @@ LD = {
     "priceRange": "20.000 Ft-tól",
     "openingHours": "Mo-Su 00:00-24:00",
 }
+# Szabadság miatti zárva tartás. A böngésző VACATION_UNTIL napján 0:00-kor magától elrejti;
+# utána a VACATION_UNTIL = "" beállítással ki is vehető a kódból.
+VACATION_UNTIL = "2026-11-23"
+VACATION = (
+    '<aside class="vacation" role="alert" data-until="' + VACATION_UNTIL + 'T00:00:00+01:00">'
+    '<p class="v-title">Szabadság miatt zárva tartunk</p>'
+    '<p>November 22-ig (vasárnapig) nem vagyunk elérhetők.<br>'
+    '<b>November 23-tól (hétfő)</b> újra várjuk hívását!</p>'
+    '</aside>'
+    '<script>(function(){var e=document.currentScript.previousElementSibling;'
+    'if(new Date()>=new Date(e.getAttribute("data-until")))e.remove();})();</script>'
+) if VACATION_UNTIL else ""
+
 LD_SCRIPT = '<script type="application/ld+json">' + json.dumps(LD, ensure_ascii=False) + "</script>\n"
 
 # ---------------------------------------------------------------------------
@@ -315,6 +328,7 @@ reviews = [
 ]
 
 home = f"""
+{VACATION}
 <section class="hero" aria-labelledby="hero-cim">
   <h1 class="hero-title" id="hero-cim"><span class="small">Szüksége van</span><span class="big">Pótkulcsra?</span></h1>
   <div class="hero-photo">{img("potkulcs-szakember", "Autókulcs szakember távirányítós autókulcsokkal, háttérben az esti Budapest", 1024, 950, lazy=False)}</div>
@@ -576,6 +590,7 @@ page("arak/", "Autókulcs másolás és autónyitás árak | Budapest 0-24", "Au
 #  Elérhetőség
 # ---------------------------------------------------------------------------
 contacts = f"""
+{VACATION}
 <section class="contact-card" aria-labelledby="kapcs-cim">
   <h1 class="lightning" id="kapcs-cim"><span>KAPCSOLAT</span></h1>
   <div class="addr">{PIN_SVG}<p style="margin:0">1112 Budapest Nagyida köz 5/B<br>Személyes ügyintézés: Hétfő – Vasárnap, 11:00-22:00<br>Helyszíni kiszállás: 0-24</p></div>
