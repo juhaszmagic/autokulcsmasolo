@@ -17,7 +17,7 @@ from html import escape
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DOMAIN = "https://autokulcsmasolo.com"
 NOINDEX = False
-FORM_EMAIL = "juhaszmagic@gmail.com"
+FORM_EMAIL = "b4409c892929cf6a22d44e214a9c6776"  # FormSubmit álnév (a valódi e-mail cím helyett)
 
 PHONE_MAIN = "+36306850133"
 PHONE_FLOAT = PHONE_MAIN  # korábban +36308843122
